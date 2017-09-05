@@ -2,6 +2,7 @@ from flask import Flask, jsonify
 from flask_restplus import Api, Resource, fields, reqparse
 from flask_cors import CORS
 import os
+from predict import *
 
 app = Flask(__name__)
 CORS(app)
@@ -27,9 +28,11 @@ class Predict(Resource):
         try:
             inp = args['request']
             print("Input recieved : ", inp)
+            results= predict(inp)
 
         except Exception as e:
             print ("Inside Exception")
+            print ("Exception occured due to {0}".format(e))
             response["response"] = {}
             response["response"]["Message"] = "Failure. Check input parameters"
             response["response"]["Values"] = {"RecommendedProduct": "NoResult"}
@@ -39,7 +42,7 @@ class Predict(Resource):
             # print("Exception due to {0}".format(e))
             #
             response["response"] = {}
-            response["response"]["Values"] = "DEFAULT VALUE"
+            response["response"]["Values"] = results
             response["response"]["Message"] = "Success"
             return jsonify(response)
 

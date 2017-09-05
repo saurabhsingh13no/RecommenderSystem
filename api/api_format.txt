@@ -1,0 +1,25 @@
+1) 
+
+API Request format : 
+
+{
+  "request": {
+				"item_viewed":[1056, 225, 1, 227, 6, 678, 776, 364, 112, 917, 888, 283, 189, 159]
+			 }
+}
+
+
+API Output Format :
+
+{
+  "response": {
+    "Message": "Success",
+    "Values": {"item1Suggested": [65509, ("confidenceLevel": 97%)],
+			   "item2suggested": [12345, ("confidenceLevel": 30%)],			   
+			  }
+  }
+}
+
+
+
+
