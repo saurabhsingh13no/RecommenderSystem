@@ -1,12 +1,12 @@
-1) 
+1) Example 1: 
 
 API Request format : 
 
-{
-  "request": {
-				"item_viewed":[1056, 225, 1, 227, 6, 678, 776, 364, 112, 917, 888, 283, 189, 159]
-			 }
-}
+	{
+	  "request": {
+					"item_viewed":[1056, 225, 1, 227, 6, 678, 776, 364, 112, 917, 888, 283, 189, 159]
+				 }
+	}
 
 
 API Output Format :
@@ -19,6 +19,8 @@ API Output Format :
 			  }
   }
 }
+
+
 
 
 

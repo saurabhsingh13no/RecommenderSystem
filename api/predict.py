@@ -71,9 +71,22 @@ def returnValue(df):
         result["item" + str(count) + "Suggested"].append(str(index))
         result["item" + str(count) + "Suggested"].append(
             tuple(("confidenceLevel", str(rows[0] * 100) + "%")))
+        result["item" + str(count) + "Suggested"].append(tuple(
+            ("suggestedProperty", str(getPropertyVectorForItemId(index)))))
         count += 1
 
     return result
+
+def getPropertyVectorForItemId(itemId):
+    item_prop = pd.read_csv("../data/item_properties_part1.csv")
+    item_prop = preProcessDF(item_prop.copy())
+    return list(set(item_prop.loc[item_prop.itemid == itemId].property.values))
+
+def preProcessDF(item_prop):
+    item_prop['property'] = item_prop['property'].replace(["categoryid"], 0)
+    item_prop['property'] = item_prop['property'].replace(["available"], 1)
+    item_prop['property'] = pd.to_numeric(item_prop.property.values)
+    return item_prop
 
 
 
