@@ -78,8 +78,8 @@ def returnValue(df):
     return result
 
 def getPropertyVectorForItemId(itemId):
-    item_prop = pd.read_csv("../data/item_properties_part1.csv")
-    item_prop = preProcessDF(item_prop.copy())
+    item_prop = pd.read_pickle("../output/item_prop.pickle")
+
     return list(set(item_prop.loc[item_prop.itemid == itemId].property.values))
 
 def preProcessDF(item_prop):
