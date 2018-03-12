@@ -16,7 +16,7 @@ $   cd RecommenderSystem
 
 Step 2) run requirements.txt
 ```shell
-$   pip install -r raequirements.txt
+$   pip install -r requirements.txt
 ```
 
 Step 3) Go to "notebook" folder and run `Task1-RecommendProduct.ipynb` cell by cell. This will create `item_prop.pickle` file in output folder
